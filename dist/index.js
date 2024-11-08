@@ -33489,7 +33489,7 @@ async function run() {
                 is_short: true,
                 text: {
                   tag: 'lark_md',
-                  content: `**Ref：**\n${env.GITHUB_REPOSITORY}/${payload.ref}`
+                  content: `**Ref：**\n${env.GITHUB_REPOSITORY}/${context.payload.ref}`
                 }
               },
               {
