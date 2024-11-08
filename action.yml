@@ -8,26 +8,25 @@ branding:
 # Define your inputs here.
 inputs:
   hookToken:
-    description: "webhook access token"
+    description: 'webhook access token'
     required: true
   secret:
-    description: "webhook secret"
-    default: ""
+    description: 'webhook secret'
+    default: ''
     required: true
   platform:
-    description: "msg type, default:lark. feishu/lark"
+    description: 'msg type, default:lark. feishu/lark'
     required: true
-    default: "lark"
+    default: 'lark'
   title:
-    description: "title"
+    description: 'title'
     required: false
   titleColor:
-    description: "titleColor"
+    description: 'titleColor'
   message:
-    description: "message"
+    description: 'message'
   buttonLink:
-    description: "buttonLink"
-
+    description: 'buttonLink'
 
 runs:
   using: node20
