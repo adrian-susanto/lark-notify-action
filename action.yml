@@ -7,44 +7,27 @@ branding:
 
 # Define your inputs here.
 inputs:
-  accessToken:
-    description: 'webhook access token'
+  hookToken:
+    description: "webhook access token"
     required: true
   secret:
-    description: 'webhook secret'
+    description: "webhook secret"
+    default: ""
     required: true
-  msgType:
-    description:
-      'msg type, default:text. text/link/markdown/actionCard/feedCard'
+  platform:
+    description: "msg type, default:lark. feishu/lark"
     required: true
-    default: 'text'
-  atMobiles:
-    description: 'atMobiles'
-    required: false
-  atUserIds:
-    description: 'atUserIds'
-  isAtAll:
-    description: 'isAtAll'
+    default: "lark"
   title:
-    description: 'title'
-  content:
-    description: 'content'
-  text:
-    description: 'text'
-  picUrl:
-    description: 'picUrl'
-  messageUrl:
-    description: 'messageUrl'
-  btnOrientation:
-    description: 'btnOrientation'
-  singleTitle:
-    description: 'singleTitle'
-  singleURL:
-    description: 'singleURL'
-  btns:
-    description: 'btns'
-  links:
-    description: 'links'
+    description: "title"
+    required: false
+  titleColor:
+    description: "titleColor"
+  message:
+    description: "message"
+  buttonLink:
+    description: "buttonLink"
+
 
 runs:
   using: node20
