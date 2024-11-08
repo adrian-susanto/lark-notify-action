@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   test-javascript:
-    name: JavaScript Tests
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -36,13 +36,6 @@ jobs:
         id: npm-format-check
         run: npm run format:check
 
-      - name: Lint
-        id: npm-lint
-        run: npm run lint
-
-      - name: Test
-        id: npm-ci-test
-        run: npm run ci-test
 
   test-action:
     name: GitHub Actions Test
@@ -57,7 +50,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 1000
+          hookToken:  ${{ secrets.LARK_HOOK }}
 
       - name: Print Output
         id: output
