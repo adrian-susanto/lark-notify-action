@@ -1,5 +1,4 @@
 const core = require('@actions/core')
-const github = require('@actions/github')
 const axios = require('axios')
 
 /**
@@ -15,7 +14,7 @@ async function run() {
     core.debug(`hookToken: ${hookToken}`)
     core.debug(`secret: ${secret}`)
     core.debug(`platform: ${platform}`)
-    core.debug(`github.context: ${JSON.stringify(github.context)}`)
+    core.debug(`process.env: ${JSON.stringify(process.env)}`)
 
     let url = ''
     if (platform === 'feishu') {
