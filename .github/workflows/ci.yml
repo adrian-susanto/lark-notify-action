@@ -50,7 +50,3 @@ jobs:
         uses: ./
         with:
           hookToken: ${{ secrets.LARK_HOOK }}
-
-      - name: Print Output
-        id: output
-        run: echo "${{ steps.test-action.outputs.time }}"

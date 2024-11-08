@@ -33,7 +33,7 @@ async function run() {
       core.debug(`sign ${sign}`)
     }
 
-    const bodyString = {
+    const requestPayload = {
       timestamp,
       sign,
       msg_type: 'interactive',
@@ -121,12 +121,11 @@ async function run() {
       }
     }
 
-    const resp = await axios.post(url, bodyString)
+    const resp = await axios.post(url, requestPayload)
 
     core.debug(`resp: ${JSON.stringify(resp.data)}`)
-    core.setOutput('result', resp.data)
 
-    if (resp.data > 0) {
+    if (resp.data.errcode > 0) {
       core.info(`✅ [DONE] ${resp.data.errmsg}`)
     } else {
       core.setFailed(`❌ [FAILED] ${resp.data.errmsg}`)
