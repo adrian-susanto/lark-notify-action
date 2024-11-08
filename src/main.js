@@ -123,12 +123,13 @@ async function run() {
 
     const resp = await axios.post(url, bodyString)
 
-    core.debug(`resp: ${JSON.stringify(resp)}`)
+    core.debug(`resp: ${JSON.stringify(resp.data)}`)
+    core.setOutput('result', resp.data)
 
-    if (resp.errcode > 0) {
-      core.info(`✅ [DONE] ${resp.errmsg}`)
+    if (resp.data > 0) {
+      core.info(`✅ [DONE] ${resp.data.errmsg}`)
     } else {
-      core.setFailed(`❌ [FAILED] ${resp.errmsg}`)
+      core.setFailed(`❌ [FAILED] ${resp.data.errmsg}`)
     }
   } catch (error) {
     core.notice(`error ${error.message}`)
