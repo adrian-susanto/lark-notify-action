@@ -15,6 +15,7 @@ async function run() {
     core.debug(`hookToken: ${hookToken}`)
     core.debug(`secret: ${secret}`)
     core.debug(`platform: ${platform}`)
+    core.debug(`github.context: ${JSON.stringify(github.context)}`)
 
     let url = ''
     if (platform === 'feishu') {
@@ -41,7 +42,7 @@ async function run() {
           wide_screen_mode: true
         },
         header: {
-          template: core.getInput('title_color'),
+          template: core.getInput('titleColor'),
           title: {
             tag: 'plain_text',
             content: core.getInput('title')
@@ -108,7 +109,7 @@ async function run() {
                 },
                 type: 'primary',
                 multi_url: {
-                  url: 'https://open.larksuite.com/document',
+                  url: core.getInput('buttonLink'),
                   android_url: '',
                   ios_url: '',
                   pc_url: ''
