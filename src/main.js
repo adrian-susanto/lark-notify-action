@@ -125,13 +125,13 @@ async function run() {
 
     core.debug(`resp: ${JSON.stringify(resp.data)}`)
 
-    if (resp.data.errcode > 0) {
-      core.info(`✅ [DONE] ${resp.data.errmsg}`)
+    if (resp.data.code > 0) {
+      core.setFailed(`❌ [FAILED] ${resp.data.msg}`)
     } else {
-      core.setFailed(`❌ [FAILED] ${resp.data.errmsg}`)
+      core.info(`✅ [DONE] ${resp.data.msg}`)
     }
   } catch (error) {
-    core.notice(`error ${error.message}`)
+    core.notice(`error ${error.msg}`)
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
   }
