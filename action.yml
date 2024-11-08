@@ -12,7 +12,10 @@ inputs:
     required: true
   secret:
     description: 'webhook secret'
-    default: ''
+    required: false
+  status:
+    description: 'status'
+    default: 'success'
     required: true
   platform:
     description: 'msg type, default:lark. feishu/lark'
@@ -20,9 +23,11 @@ inputs:
     default: 'lark'
   title:
     description: 'title'
-    required: false
+    required: true
+    default: '项目部署通知'
   titleColor:
     description: 'titleColor'
+    required: false
   message:
     description: 'message'
   buttonLink:

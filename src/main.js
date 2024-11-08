@@ -1,4 +1,5 @@
 const core = require('@actions/core')
+const github = require('@actions/github')
 const axios = require('axios')
 
 /**
@@ -14,7 +15,7 @@ async function run() {
     core.debug(`hookToken: ${hookToken}`)
     core.debug(`secret: ${secret}`)
     core.debug(`platform: ${platform}`)
-    core.debug(`process.env: ${JSON.stringify(process.env)}`)
+    core.debug(`github.context: ${JSON.stringify(github.context)}`)
 
     let url = ''
     if (platform === 'feishu') {
@@ -31,6 +32,10 @@ async function run() {
       sign = genSign(timestamp, secret)
       core.debug(`sign ${sign}`)
     }
+    const context = github.context
+    const env = process.env
+
+    const success = core.getInput('status') === 'success'
 
     const requestPayload = {
       timestamp,
@@ -41,16 +46,16 @@ async function run() {
           wide_screen_mode: true
         },
         header: {
-          template: core.getInput('titleColor'),
+          template: core.getInput('titleColor') || success ? 'green' : 'red',
           title: {
             tag: 'plain_text',
-            content: core.getInput('title')
+            content: `${success ? '✅ [SUCCESS]' : '❌ [FAILED]'} ${core.getInput('title')}`
           }
         },
         elements: [
           {
             tag: 'markdown',
-            content: `${core.getInput('message') || ''} <at id=all></at>`
+            content: `${core.getInput('message') || context.payload.head_commit.message} <at id=all></at>`
           },
           {
             tag: 'div',
@@ -59,14 +64,14 @@ async function run() {
                 is_short: true,
                 text: {
                   tag: 'lark_md',
-                  content: '**Ref：**\n报事报修'
+                  content: `**Ref：**\n${env.GITHUB_REPOSITORY}/${payload.ref}`
                 }
               },
               {
                 is_short: true,
                 text: {
                   tag: 'lark_md',
-                  content: '**Event：**\n客服工单'
+                  content: `**Event：**\n${context.eventName}`
                 }
               }
             ]
@@ -78,24 +83,17 @@ async function run() {
                 is_short: true,
                 text: {
                   tag: 'lark_md',
-                  content: '**Author:**\naaaa'
+                  content: `**Author:**\n${context.payload.head_commit.author.name}`
                 }
               },
               {
                 is_short: true,
                 text: {
                   tag: 'lark_md',
-                  content: '**Time：**\n2024/1/16'
+                  content: `**Time：**\n${context.payload.head_commit.timestamp}`
                 }
               }
             ]
-          },
-          {
-            tag: 'div',
-            text: {
-              content: '这是一段普通文本😄',
-              tag: 'lark_md'
-            }
           },
           {
             tag: 'action',
@@ -108,7 +106,9 @@ async function run() {
                 },
                 type: 'primary',
                 multi_url: {
-                  url: core.getInput('buttonLink'),
+                  url:
+                    core.getInput('buttonLink') ||
+                    context.payload.head_commit.url,
                   android_url: '',
                   ios_url: '',
                   pc_url: ''
