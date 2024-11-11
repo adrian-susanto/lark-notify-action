@@ -4,6 +4,8 @@
 
 **Screenshot**
 
+![屏幕截图 2024-11-11 103339](https://github.com/user-attachments/assets/d7a9b77f-4d87-4630-b73a-3b65f615e46c)
+
 ## Usage
 
 You can see the action block with all variables as below:
