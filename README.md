@@ -3,8 +3,7 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 **Screenshot**
-
-![屏幕截图 2024-11-11 103339](https://github.com/user-attachments/assets/d7a9b77f-4d87-4630-b73a-3b65f615e46c)
+<img width="600" alt="action-slack-notify-rtcamp" src="https://github.com/user-attachments/assets/d7a9b77f-4d87-4630-b73a-3b65f615e46c">
 
 ## Usage
 

@@ -33480,7 +33480,7 @@ async function run() {
         elements: [
           {
             tag: 'markdown',
-            content: `${core.getInput('message') || context.payload.head_commit.message} <at id=all></at>`
+            content: `${core.getInput('message') || context.payload.head_commit.message}\n <at id=all></at>`
           },
           {
             tag: 'div',
