@@ -1,4 +1,4 @@
-name: 'lark(fieshu)-notify-acton'
+name: 'lark(fieshu)-notify-action'
 description: 'This action will send a notification to lark'
 author: 'maximus'
 branding:
