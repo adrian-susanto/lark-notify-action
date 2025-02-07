@@ -1,0 +1,14 @@
+name: Lark Notification
+
+on : [pull_request, issues]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Lark Notification
+        uses: maximus-1024/lark-notify-action
+        with:
+          hookToken: ${{ secrets.LARK_HOOK }}
+          status: ${{ job.status }}
