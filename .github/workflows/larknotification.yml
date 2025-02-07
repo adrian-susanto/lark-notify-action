@@ -10,7 +10,7 @@ jobs:
     
     steps:
       - name: Check Lark Hook Secret
-        run: echo "LARK Hook is set"
+        run: echo ${{ secrets.LARK_HOOK }}
 
       - name: Lark Notification
         uses: maximus-1024/lark-notify-action@v1.0.0
