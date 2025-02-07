@@ -102,7 +102,7 @@ async function run() {
                 tag: 'button',
                 text: {
                   tag: 'plain_text',
-                  content: '查看详情'
+                  content: 'Click Here'
                 },
                 type: 'primary',
                 multi_url: {
