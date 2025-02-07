@@ -1,12 +1,17 @@
 name: Lark Notification
 
-on : [pull_request, issues]
+on: 
+  pull_request:
+  issues:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Check Lark Hook Secret
+        run: echo "LARK Hook is set"
+
       - name: Lark Notification
         uses: maximus-1024/lark-notify-action@v1.0.0
         with:
