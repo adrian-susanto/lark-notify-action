@@ -1,0 +1,21 @@
+name: Lark Notification
+
+on: 
+  pull_request:
+  issues:
+  push:
+
+jobs:
+  gasssss:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Lark Notification
+        uses: adrian-susanto/lark-notify-action@adrian/test-lark-notif
+        with:
+          title: Test to adrian-playground
+          hookToken: ${{ secrets.LARK_HOOK }}
+          status: ${{ job.status }}
