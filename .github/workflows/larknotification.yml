@@ -12,9 +12,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run Prettier
-        run: npx prettier --check .
-
       - name: Print job status for debugging
         run: echo ${{ job.status }}
 
