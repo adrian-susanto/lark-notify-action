@@ -8,7 +8,7 @@ jobs:
     
     steps:
       - name: Lark Notification
-        uses: maximus-1024/lark-notify-action
+        uses: maximus-1024/lark-notify-action@v1
         with:
           hookToken: ${{ secrets.LARK_HOOK }}
           status: ${{ job.status }}
