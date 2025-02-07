@@ -2,8 +2,8 @@ name: Lark Notification
 
 on: 
   pull_request:
-  issues:
-  push:
+    branches:
+      - main
 
 jobs:
   gasssss:
