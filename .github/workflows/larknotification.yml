@@ -3,6 +3,7 @@ name: Lark Notification
 on: 
   pull_request:
   issues:
+  push:
 
 jobs:
   gasssss:
