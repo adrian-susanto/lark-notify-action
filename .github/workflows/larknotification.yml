@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check if LARK_HOOK secret is available
         run: |
-          if [ -z "${{ secrets.LARK_HOOK }}" ]; then
+          if [ -z "${{ secrets.LARK_HOOK.LARK_HOOK }}" ]; then
             echo "LARK_HOOK is not set"
             exit 1
           else
