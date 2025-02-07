@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check if LARK_HOOK secret is available
-        run: |
-          if [ -z "${{ secrets.LARK_HOOK }}" ]; then
-            echo "LARK_HOOK is not set"
-          else
-            echo "LARK_HOOK is set"
-          fi
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Prettier
+        run: npx prettier --check .
+
+      - name: Print job status for debugging
+        run: echo ${{ job.status }}
 
       - name: Lark Notification
         uses: maximus-1024/lark-notify-action@v1.0.0
