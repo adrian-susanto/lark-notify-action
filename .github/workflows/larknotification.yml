@@ -17,4 +17,4 @@ jobs:
         with:
           title: Test to adrian-playground
           hookToken: ${{ secrets.LARK_HOOK }}
-          # status: ${{ job.status }}
+          status: ${{ job.status }}
