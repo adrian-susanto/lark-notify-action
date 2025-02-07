@@ -55,7 +55,7 @@ async function run() {
         elements: [
           {
             tag: 'markdown',
-            content: `${core.getInput('message') || context.payload.head_commit.message}\n <at id=all></at>`
+            content: `${core.getInput('message') || context.payload.head_commit.message}\n <at id=xxx></at>`
           },
           {
             tag: 'div',
@@ -102,7 +102,7 @@ async function run() {
                 tag: 'button',
                 text: {
                   tag: 'plain_text',
-                  content: 'Click Here'
+                  content: 'ClickHere'
                 },
                 type: 'primary',
                 multi_url: {

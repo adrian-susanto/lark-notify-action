@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Lark Notification
-        uses: adrian-susanto/lark-notify-action@adrian/test-lark-notif
+        uses: adrian-susanto/lark-notify-action@main
         with:
-          title: Test to adrian-playground
+          title: ${{ github.repository }}
           hookToken: ${{ secrets.LARK_HOOK }}
           status: ${{ job.status }}
