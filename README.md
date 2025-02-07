@@ -21,11 +21,11 @@ You can see the action block with all variables as below:
 
 | Variable   | Default                                | Purpose                                                                                     |
 | ---------- | -------------------------------------- | ------------------------------------------------------------------------------------------- |
-| hookToken  | "" （必填）                            | 创建自定义机器人时候的webhook,例如：4ac55366-c9d3-4538-a549-8078f0c64d02a                   |
-| secret     | ""                                     | 创建自定义机器人时候的webhook的密钥                                                         |
-| status     | success                                | job的运行状态                                                                               |
-| platform   | lark                                   | 机器人的运行平台，lark,feishu,默认为lark                                                    |
-| title      | 项目部署通知                           | 消息通知的标题                                                                              |
-| titleColor | green                                  | 卡片消息通知的颜色，不过不传值会根据status的状态来判断status为success为绿色，其它状态为红色 |
-| message    | ${context.payload.head_commit.message} | 卡片消息的通知内容                                                                          |
-| buttonLink | ${context.payload.head_commit.url}     | 卡片消息的跳转链接                                                                          |
+| hookToken  | "" （required）                         | Webhook URL to Lark groups, but only need the unique value, for example: 4ac55366-c9d3-4538-a549-8078f0c64d02a |
+| secret     | ""                                     | The key for the Webhook URL (if enabled) |
+| status     | success                                | Running status of the job |
+| platform   | lark                                   | Platform that you're using，acceptable value is lark or feishu. |
+| title      | ${github.repository}                   | Title of message notification |
+| titleColor | green                                  | Color of card message notification, but if no value is passed, it will be set according to the status of status. If the status is success, it will be green, and other statuses will be red |
+| message    | ${context.payload.head_commit.message} | Notification content of card message |
+| buttonLink | ${context.payload.head_commit.url}     | Destionation of buttonLink in the card message |
